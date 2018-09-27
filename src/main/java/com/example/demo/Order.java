@@ -1,0 +1,33 @@
+package com.example.demo;
+
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "t_order")
+@Getter
+@Setter
+@NoArgsConstructor
+public class Order {
+
+  @Id
+  @GeneratedValue
+  private Long id;
+
+  private String name;
+
+  @ManyToOne(optional = false)
+  @OnDelete(action = OnDeleteAction.CASCADE)
+  private User user;
+
+
+}
