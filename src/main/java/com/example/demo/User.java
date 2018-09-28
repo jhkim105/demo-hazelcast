@@ -11,6 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -19,14 +20,17 @@ import java.util.Set;
 @ToString(exclude = {"orders"})
 @Getter
 @Setter
-public class User {
+public class User implements Serializable {
+
+  private static final long serialVersionUID = -7755733012666420055L;
+
   @Id
   @GeneratedValue
   private Long id;
 
   private String name;
 
-  @OneToMany(mappedBy = "user", cascade = {CascadeType.PERSIST}, orphanRemoval = true)
-  private Set<Order> orders = new HashSet<>();
+//  @OneToMany(mappedBy = "user", cascade = {CascadeType.PERSIST}, orphanRemoval = true)
+//  private Set<Order> orders = new HashSet<>();
 
 }

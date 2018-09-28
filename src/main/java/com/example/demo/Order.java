@@ -11,13 +11,16 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "t_order")
 @Getter
 @Setter
 @NoArgsConstructor
-public class Order {
+public class Order implements Serializable {
+
+  private static final long serialVersionUID = 7385403806137238426L;
 
   @Id
   @GeneratedValue
