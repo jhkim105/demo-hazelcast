@@ -11,7 +11,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import java.io.Serializable;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -30,6 +32,8 @@ public class User implements Serializable {
 
   private String name;
 
+  @Transient
+  private Date retrieveDate;
 //  @OneToMany(mappedBy = "user", cascade = {CascadeType.PERSIST}, orphanRemoval = true)
 //  private Set<Order> orders = new HashSet<>();
 

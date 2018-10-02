@@ -12,7 +12,7 @@ public class UserController {
   private final UserService userService;
 
   @GetMapping("/users")
-  public User get(@PathVariable String name) {
+  public User get(String name) {
     return userService.getUser(name);
   }
 }

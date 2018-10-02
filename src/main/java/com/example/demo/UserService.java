@@ -6,6 +6,8 @@ import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
+
 @Service
 @CacheConfig(cacheNames = "users")
 public class UserService {
@@ -15,7 +17,9 @@ public class UserService {
 
   @Cacheable(condition = "#name.equals('user1')")
   public User getUser(String name) {
-    return userRepository.findByName(name);
+    User user =  userRepository.findByName(name);
+    user.setRetrieveDate(new Date());
+    return user;
   }
 
 
