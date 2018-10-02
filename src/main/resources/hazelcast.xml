@@ -16,8 +16,9 @@
       </multicast>
       <tcp-ip enabled="true">
         <!--<interface>172.25.111.192</interface>-->
+        <required-member>172.25.111.192</required-member>
+        <member>172.25.111.192</member>
         <member-list>
-          <member>172.25.111.192</member>
           <member>172.25.111.199</member>
         </member-list>
       </tcp-ip>
