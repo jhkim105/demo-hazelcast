@@ -11,6 +11,7 @@
   <partition-group enabled="false"/>
   <network>
     <port auto-increment="true" port-count="100">5701</port>
+    <!--<public-address></public-address>-->
     <join>
       <multicast enabled="false">
       </multicast>
