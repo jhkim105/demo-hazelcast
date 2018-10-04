@@ -12,7 +12,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
 <network>
   <cluster-members>
-    <address>127.0.0.1</address>
+    <address>@hazelcast.host@</address>
   </cluster-members>
 </network>
 </hazelcast-client>

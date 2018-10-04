@@ -7,6 +7,45 @@ docker run -d --name hazelcast-mgmt -p 38080:8080 hazelcast/management-center:la
 
 hazelcast.xml(/opt/hazelcast)
 ```
+<?xml version="1.0" encoding="UTF-8"?>
+<hazelcast xmlns="http://www.hazelcast.com/schema/config"
+           xsi:schemaLocation="http://www.hazelcast.com/schema/config http://www.hazelcast.com/schema/config/hazelcast-config-3.9.xsd"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <group>
+    <name>dev</name>
+    <password>dev-pass</password>
+  </group>
+  <management-center enabled="true" update-interval="3">http://172.25.111.191:38080/hazelcast-mancenter</management-center>
+  <partition-group enabled="false"/>
+  <network>
+    <port auto-increment="true" port-count="100">5701</port>
+    <!--<public-address></public-address>-->
+    <join>
+      <multicast enabled="false">
+      </multicast>
+      <tcp-ip enabled="true">
+        <!--<interface>172.25.111.192</interface>-->
+        <!--<required-member>172.25.111.192</required-member>-->
+        <!--<member>172.25.111.192</member>-->
+        <member-list>
+          <member>172.25.111.192</member>
+          <member>172.25.111.199</member>
+        </member-list>
+      </tcp-ip>
+      <discovery-strategies>
+      </discovery-strategies>
+    </join>
+  </network>
+  <map name="users">
+    <max-size>200</max-size>
+    <eviction-policy>LRU</eviction-policy>
+    <time-to-live-seconds>20</time-to-live-seconds>
+  </map>
+</hazelcast>
+```
+hazelcast.xml for docker
+```
 <?xml version="1.0" encoding="UTF-8"?>                                                                                                                                               
 <hazelcast xmlns="http://www.hazelcast.com/schema/config"                                                                                                                            
            xsi:schemaLocation="http://www.hazelcast.com/schema/config http://www.hazelcast.com/schema/config/hazelcast-config-3.11.xsd"                                              
