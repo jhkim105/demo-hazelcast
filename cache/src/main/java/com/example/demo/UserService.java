@@ -1,5 +1,7 @@
 package com.example.demo;
 
+import com.example.demo.common.model.User;
+import com.example.demo.common.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.cache.annotation.CacheEvict;
